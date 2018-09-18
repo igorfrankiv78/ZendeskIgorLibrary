@@ -16,10 +16,12 @@ public class RestServiceModule {
 
     @IAppScope
     @Provides
-    public ZendeskService zendeskService(@Named("ZendeskServiceNew") OkHttpClient okHttpClient, AndroidRxSchedulers androidSchedulers) {
+    public ZendeskService zendeskService(@Named("ZendeskServiceNew") OkHttpClient okHttpClient
+//            , AndroidRxSchedulers androidSchedulers
+    ) {
          return new Retrofit.Builder().
                 baseUrl(  UserParam.API_BASE_URL ).
-                addCallAdapterFactory(RxJavaCallAdapterFactory.createWithScheduler(androidSchedulers.network())).
+//                addCallAdapterFactory(RxJavaCallAdapterFactory.createWithScheduler(androidSchedulers.network())).
                 addConverterFactory(GsonConverterFactory.create()).
                 client(  okHttpClient  ).
                 build().create(ZendeskService.class);
