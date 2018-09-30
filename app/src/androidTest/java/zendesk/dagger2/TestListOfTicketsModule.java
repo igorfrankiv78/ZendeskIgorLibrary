@@ -3,13 +3,12 @@ package zendesk.dagger2;
 import com.twistedequations.mvl.rx.AndroidRxSchedulers;
 
 import org.mockito.Mockito;
-
-import zendeskigorlibrary.ie.screens.listoftickets.mvp.gettickets.ZendeskServiceImp;
-import zendeskigorlibrary.ie.model.MyObservable;
+import zendeskigorlibrary.ie.helpers.MyObservable;
 import zendeskigorlibrary.ie.screens.listoftickets.dagger.ListOfTicketsModule;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.IListView;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.ListModel;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.ListPresenter;
+import zendeskigorlibrary.ie.zendesk.ZendeskService;
 
 /*** Created by igorfrankiv on 03/05/2018. */
 
@@ -33,7 +32,7 @@ public class TestListOfTicketsModule extends ListOfTicketsModule {
     }
 
     @Override
-    public ListModel listModel(ZendeskServiceImp zendeskServiceImp, MyObservable myObservable) {
+    public ListModel listModel(ZendeskService zendeskService, MyObservable myObservable) {
         return Mockito.mock( ListModel.class  );
     }
 

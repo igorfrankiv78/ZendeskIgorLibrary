@@ -1,43 +1,35 @@
 package zendeskigorlibrary.ie.screens.listoftickets.mvp;
 
-import android.support.annotation.NonNull;
 import rx.Observable;
-import zendeskigorlibrary.ie.screens.listoftickets.mvp.gettickets.IOnCompleteGetTickets;
-import zendeskigorlibrary.ie.screens.listoftickets.mvp.gettickets.ZendeskServiceImp;
-import zendeskigorlibrary.ie.model.MyObservable;
+import zendeskigorlibrary.ie.constants.UserParam;
+import zendeskigorlibrary.ie.helpers.CallbackWrapper;
+import zendeskigorlibrary.ie.helpers.MyObservable;
 import zendeskigorlibrary.ie.model.TicketsResults;
-
+import zendeskigorlibrary.ie.zendesk.ZendeskService;
 /*** Created by igor on 03/06/2017.*/
 
 public class ListModel implements IListModel {
 
-   public static final String ERROR_MESSAGE = "No Data!";
+    public static final String ERROR_MESSAGE = "No Data!";
+    private ZendeskService mZendeskService;
+    private MyObservable<TicketsResults> mMyObservable;
 
-    private ZendeskServiceImp mZendeskServiceImp;
-    private MyObservable<TicketsResults> mDeleteItemLocationsDBObs;
-
-    public ListModel(ZendeskServiceImp zendeskServiceImp, MyObservable myObservable){
-        mZendeskServiceImp = zendeskServiceImp;
-        mDeleteItemLocationsDBObs = myObservable;
+    public ListModel(ZendeskService zendeskService, MyObservable myObservable){
+        mZendeskService = zendeskService;
+        this.mMyObservable = myObservable;
     }
 
-    public Observable<TicketsResults> getAllTheTickets( ){
+    public Observable<TicketsResults> getAllTheTickets() {
 
-        mZendeskServiceImp.getAllTheTickets(new IOnCompleteGetTickets() {
+        this.mZendeskService.getTickets( UserParam.URL ).enqueue(new CallbackWrapper<TicketsResults>((throwable, response) -> {
+            if (response.isSuccessful())
+                mMyObservable.add( response.body() );
+            else // response.errorBody(); // ListModel.ERROR_MESSAGE
+                mMyObservable.add( null );
 
-            @Override
-            public void onErrorGettingTickets(@NonNull String reason) {
-//                mIListView.errorInGettingTickets(reason);//   throw new Exception();
-                mDeleteItemLocationsDBObs.add( null );
-            }
+            mMyObservable.add( null ); // throwable.getMessage()
+        }));
 
-            @Override
-            public void onGettingTickets(@NonNull TicketsResults ticketsResults) {
-                mDeleteItemLocationsDBObs.add( ticketsResults );
-            }
-
-        });
-
-        return mDeleteItemLocationsDBObs.getObservable();
+        return mMyObservable.getObservable();
     }
 }

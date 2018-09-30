@@ -9,7 +9,6 @@ import zendeskigorlibrary.ie.model.TicketsResults;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.IListView;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.ListModel;
 import zendeskigorlibrary.model.TicketsResultsTest;
-
 import static org.mockito.Mockito.when;
 
 /*** Created by igorfrankiv on 04/05/2018.*/

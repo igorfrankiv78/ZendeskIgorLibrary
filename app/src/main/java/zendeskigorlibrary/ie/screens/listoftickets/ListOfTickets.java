@@ -1,10 +1,7 @@
 package zendeskigorlibrary.ie.screens.listoftickets;
 /*** Created by igor on 04/06/2017. ***/
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +10,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import zendeskigorlibrary.ie.R;
 import zendeskigorlibrary.ie.app.RxMvpApp;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.LinearLayoutManager;
 import zendeskigorlibrary.ie.model.TicketsResults;
 import zendeskigorlibrary.ie.screens.listoftickets.dagger.DaggerIListOfTicketsComponent;
 import zendeskigorlibrary.ie.screens.listoftickets.dagger.ListOfTicketsModule;
@@ -22,8 +21,8 @@ import zendeskigorlibrary.ie.screens.listoftickets.viewadapt.ZendeskListViewAdap
 
 public class ListOfTickets extends Activity implements IListView {
 
-     @Inject
-     ListPresenter mListPresenter;
+    @Inject
+    ListPresenter mListPresenter;
     private RecyclerView mRecyclerViewVirtical;
     private ZendeskListViewAdapter mZendeskListViewAdapter;
 
@@ -61,7 +60,8 @@ public class ListOfTickets extends Activity implements IListView {
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
             mRecyclerViewVirtical.setLayoutManager(layoutManager);
             mRecyclerViewVirtical.setAdapter(mZendeskListViewAdapter);
-        } else {
+        }
+        else {
             errorText.setText(errorStr);
             errorText.setVisibility(View.VISIBLE);
         }

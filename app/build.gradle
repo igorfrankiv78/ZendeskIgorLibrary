@@ -106,6 +106,8 @@ dependencies {
     //--------------------------------------------------------------------------
     androidTestCompile 'com.squareup.retrofit2:retrofit-mock:2.0.0'
     androidTestCompile ('com.squareup.okhttp:mockwebserver:2.7.0')
+    testCompile 'com.squareup.retrofit2:retrofit-mock:2.0.0'
+    testCompile ('com.squareup.okhttp:mockwebserver:2.7.0')
     //--------------------------------------------------------------------------
     testCompile 'com.google.truth:truth:0.28'
     testCompile 'org.mockito:mockito-core:2.8.8'

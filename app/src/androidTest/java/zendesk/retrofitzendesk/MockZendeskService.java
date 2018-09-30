@@ -4,6 +4,7 @@ import java.net.URLConnection;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.mock.BehaviorDelegate;
+import rx.Observable;
 import zendesk.model.TicketsResultsTest;
 import zendesk.util.NetworkUtil;
 import zendeskigorlibrary.ie.constants.UserParam;

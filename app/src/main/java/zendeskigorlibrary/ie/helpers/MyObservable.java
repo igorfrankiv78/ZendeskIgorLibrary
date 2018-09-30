@@ -1,4 +1,4 @@
-package zendeskigorlibrary.ie.model;
+package zendeskigorlibrary.ie.helpers;
 
 import rx.Observable;
 import rx.subjects.PublishSubject;

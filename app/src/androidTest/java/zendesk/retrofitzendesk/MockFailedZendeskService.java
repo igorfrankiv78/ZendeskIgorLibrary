@@ -1,8 +1,5 @@
 package zendesk.retrofitzendesk;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import android.util.Log;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
@@ -10,9 +7,13 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.mock.BehaviorDelegate;
 import retrofit2.mock.Calls;
+import rx.Observable;
 import zendeskigorlibrary.ie.constants.UserParam;
 import zendeskigorlibrary.ie.model.TicketsResults;
 import zendeskigorlibrary.ie.zendesk.ZendeskService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 public class MockFailedZendeskService implements ZendeskService
 {

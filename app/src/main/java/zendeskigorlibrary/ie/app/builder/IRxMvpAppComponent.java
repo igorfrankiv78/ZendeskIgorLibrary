@@ -4,20 +4,19 @@ package zendeskigorlibrary.ie.app.builder;
 import dagger.Component;
 import android.content.Context;
 import com.twistedequations.mvl.rx.AndroidRxSchedulers;
-import zendeskigorlibrary.ie.screens.listoftickets.mvp.gettickets.ZendeskServiceImp;
-import zendeskigorlibrary.ie.model.MyObservable;
+import zendeskigorlibrary.ie.helpers.MyObservable;
+import zendeskigorlibrary.ie.zendesk.ZendeskService;
 
 @IAppScope
 @Component(modules = {  RxMvpAppModule.class,
                         NetworkModule.class,
                         RestServiceModule.class,
                         RxModule.class,
-                        ZendeskServiceHelperModule.class,
                         MyObservableModule.class})
 public interface IRxMvpAppComponent {
 
     Context context();
     AndroidRxSchedulers rxSchedulers();
-    ZendeskServiceImp zendeskServiceHelper();
+    ZendeskService zendeskService();
     MyObservable myObservable();
 }

@@ -2,12 +2,11 @@ package zendeskigorlibrary.ie.screens.listoftickets.dagger;
 
 import dagger.Module;
 import dagger.Provides;
-import zendeskigorlibrary.ie.screens.listoftickets.mvp.gettickets.ZendeskServiceImp;
-import zendeskigorlibrary.ie.model.MyObservable;
+import zendeskigorlibrary.ie.helpers.MyObservable;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.IListView;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.ListModel;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.ListPresenter;
-
+import zendeskigorlibrary.ie.zendesk.ZendeskService;
 import com.twistedequations.mvl.rx.AndroidRxSchedulers;
 
 /***  Created by igorfrankiv on 26/04/2018. ***/
@@ -28,12 +27,12 @@ public class ListOfTicketsModule {
     @Provides
     @IListOfTicketsScope
     public ListPresenter homePresenter(IListView iListView, ListModel listModel, AndroidRxSchedulers schedulers){
-        return new ListPresenter( iListView, listModel, schedulers);
+        return new ListPresenter( iListView, listModel, schedulers );
     }
 
     @Provides
     @IListOfTicketsScope
-    public ListModel listModel(ZendeskServiceImp zendeskServiceImp, MyObservable myObservable) {
-        return new ListModel(zendeskServiceImp, myObservable );
+    public ListModel listModel(ZendeskService zendeskService, MyObservable myObservable) {
+        return new ListModel( zendeskService, myObservable );
     }
 }

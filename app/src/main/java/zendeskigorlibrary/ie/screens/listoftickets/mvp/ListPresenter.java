@@ -1,11 +1,10 @@
 package zendeskigorlibrary.ie.screens.listoftickets.mvp;
 
-import com.twistedequations.mvl.rx.AndroidRxSchedulers;
-import javax.inject.Inject;
 import rx.Observable;
 import rx.Subscription;
+import javax.inject.Inject;
 import rx.subscriptions.CompositeSubscription;
-
+import com.twistedequations.mvl.rx.AndroidRxSchedulers;
 /*** Created by igor on 03/06/2017. ***/
 
 public class ListPresenter
@@ -33,7 +32,7 @@ public class ListPresenter
 
     private Subscription getAllTickets(){
         return Observable.just(null) //inital load
-                .flatMap(aVoid -> this.mListModel.getAllTheTickets()) //get the journeys data from Data Base
+                .flatMap(aVoid -> mListModel.getAllTheTickets()) //get the tickets data from API Server
                 .doOnError(throwable -> {
                     throwable.printStackTrace(); //Log errors
                     mIListView.errorInGettingTickets(ListModel.ERROR_MESSAGE); // show error dialog on error
@@ -42,5 +41,6 @@ public class ListPresenter
                 .observeOn(schedulers.mainThread())
                 .subscribe(this.mIListView::successInGettingTickets); // display data
     }
-
 }
+
+

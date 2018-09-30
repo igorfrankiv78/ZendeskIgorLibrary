@@ -2,14 +2,12 @@ package zendesk.dagger2;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import javax.inject.Inject;
-
 import zendeskigorlibrary.ie.app.RxMvpApp;
 import zendeskigorlibrary.ie.screens.listoftickets.ListOfTickets;
 import zendeskigorlibrary.ie.screens.listoftickets.mvp.IListView;

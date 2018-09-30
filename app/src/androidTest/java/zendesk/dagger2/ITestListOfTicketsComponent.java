@@ -1,7 +1,6 @@
 package zendesk.dagger2;
 
 import dagger.Component;
-import zendesk.helpers.ZendeskServiceImpTest;
 import zendeskigorlibrary.ie.app.builder.IRxMvpAppComponent;
 import zendeskigorlibrary.ie.screens.listoftickets.dagger.IListOfTicketsScope;
 import zendeskigorlibrary.ie.screens.listoftickets.dagger.ListOfTicketsModule;
@@ -11,5 +10,4 @@ import zendeskigorlibrary.ie.screens.listoftickets.dagger.ListOfTicketsModule;
 @Component(modules = ListOfTicketsModule.class, dependencies = IRxMvpAppComponent.class)
 public interface ITestListOfTicketsComponent {
     void inject(ListOfTicketsTest listOfTicketsTest);
-    void inject(ZendeskServiceImpTest zendeskServiceHelperTest);
 }
