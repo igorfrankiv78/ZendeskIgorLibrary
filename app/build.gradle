@@ -50,7 +50,7 @@ android {
     }
 }
 
-//Kapt works for both java and kotlin classes
+//Kapt works for both java and kotlin classes /kotlin-kapt
 kapt {
     generateStubs = true
 }

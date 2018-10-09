@@ -62,6 +62,7 @@ public final class ZendeskListViewAdapter extends RecyclerView.Adapter<ZendeskLi
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
+
         private TextView statusTextV, idTextV, subjectTextV, descriptionTextV;
 
         protected ViewHolder(View view) {

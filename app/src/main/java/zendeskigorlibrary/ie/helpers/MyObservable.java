@@ -2,7 +2,6 @@ package zendeskigorlibrary.ie.helpers;
 
 import rx.Observable;
 import rx.subjects.PublishSubject;
-
 /*** Created by igorfrankiv on 05/03/2018.*/
 
 public class MyObservable<T> {

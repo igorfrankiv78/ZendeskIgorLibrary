@@ -1,10 +1,8 @@
-package zendeskigorlibrary.ie.app.builder;
-
-import com.twistedequations.mvl.rx.AndroidRxSchedulers;
+package zendeskigorlibrary.ie.app.builder.helpers;
 
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
-
+import com.twistedequations.mvl.rx.AndroidRxSchedulers;
 /*** Created by igorfrankiv on 26/02/2018.*/
 
 public class MyAndroidRxSchedulers implements AndroidRxSchedulers {
@@ -39,4 +37,3 @@ public class MyAndroidRxSchedulers implements AndroidRxSchedulers {
         return Schedulers.immediate();
     }
 }
-

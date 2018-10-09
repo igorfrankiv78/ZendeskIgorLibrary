@@ -1,11 +1,11 @@
-package zendeskigorlibrary.ie.helpers;
+package zendeskigorlibrary.ie.app.builder.helpers;
 
+/**
+ * Created by igorfrankiv on 09/10/2018.
+ */
 import java.io.IOException;
-
 import okhttp3.Interceptor;
 import okhttp3.Response;
-
-/*** Created by igor on 03/06/2017. ***/
 
 public class AuthenticationInterceptor implements Interceptor {
 
@@ -19,8 +19,8 @@ public class AuthenticationInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         return chain.proceed(
                 chain.request().
-                newBuilder().
-                header("Authorization", authToken).
-                build());
+                        newBuilder().
+                        header("Authorization", authToken).
+                        build());
     }
 }

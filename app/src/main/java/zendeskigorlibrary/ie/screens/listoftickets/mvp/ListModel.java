@@ -24,7 +24,7 @@ public class ListModel implements IListModel {
         this.mZendeskService.getTickets( UserParam.URL ).enqueue(new CallbackWrapper<TicketsResults>((throwable, response) -> {
             if (response.isSuccessful())
                 mMyObservable.add( response.body() );
-            else // response.errorBody(); // ListModel.ERROR_MESSAGE
+            else // response.errorBody(); // ListModelKotlin.ERROR_MESSAGE
                 mMyObservable.add( null );
 
             mMyObservable.add( null ); // throwable.getMessage()

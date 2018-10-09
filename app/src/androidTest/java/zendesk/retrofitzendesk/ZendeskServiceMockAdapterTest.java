@@ -58,7 +58,7 @@ public void setUp() throws Exception {
 
         Assert.assertEquals("This is test ticket1", quoteOfTheDayResponse.body().getResults().get(0).getDescription());
 
-        Log.e("testZendeskServiceHelperTest ",  quoteOfTheDayResponse.body().getResults().get(0).getDescription());
+//        Log.e("testZendeskServiceHelperTest ",  quoteOfTheDayResponse.body().getResults().get(0).getDescription());
     }
 
     @SmallTest

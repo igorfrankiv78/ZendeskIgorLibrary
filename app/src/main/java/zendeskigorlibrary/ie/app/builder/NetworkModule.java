@@ -5,12 +5,13 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
+import zendeskigorlibrary.ie.app.builder.helpers.AuthenticationInterceptor;
 import zendeskigorlibrary.ie.constants.UserParam;
-import zendeskigorlibrary.ie.helpers.AuthenticationInterceptor;
+
 /*** Created by igorfrankiv on 27/04/2018.*/
 
 @Module
-public class  NetworkModule {
+public class NetworkModule {
     @IAppScope
     @Provides
     @Named("ZendeskServiceNew")
@@ -24,5 +25,4 @@ public class  NetworkModule {
     public OkHttpClient okHttpClient(@Named("ZendeskServiceNew") AuthenticationInterceptor authenticationInterceptor) {
         return new OkHttpClient.Builder().addNetworkInterceptor( authenticationInterceptor ).build() ;
     }
-
 }

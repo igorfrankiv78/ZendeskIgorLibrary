@@ -13,7 +13,9 @@
         android:name="zendeskigorlibrary.ie.app.RxMvpApp"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme">
+
         <activity android:name="zendeskigorlibrary.ie.screens.listoftickets.ListOfTickets">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

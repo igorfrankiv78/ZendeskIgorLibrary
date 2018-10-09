@@ -1,5 +1,6 @@
 package zendeskigorlibrary.ie.screens.listoftickets;
 /*** Created by igor on 04/06/2017. ***/
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +38,7 @@ public class ListOfTickets extends Activity implements IListView {
 
         setContentView(R.layout.activity_testr);
         ButterKnife.bind(this);
+
         DaggerIListOfTicketsComponent.builder()
                 .iRxMvpAppComponent(RxMvpApp.get(this).component())
                 .listOfTicketsModule(new ListOfTicketsModule(this))
